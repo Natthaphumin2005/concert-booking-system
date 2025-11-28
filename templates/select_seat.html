@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เลือกที่นั่ง | Concert Booking System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/select_seat.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>
+        <span class="title-white">Concert</span>
+        <span class="title-purple">Booking</span>
+        <span class="title-green">System</span>
+      </h2>
+      <a href="/home">Home</a>
+      <a href="/concerts">Concert</a>
+      <a href="/concert_management" class="active">Concert Management</a>
+      <a href="/venue">Manage venue & seat</a>
+      <a href="/seat_pricing">Seat Price Management</a>
+      <a href="/about">About</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-container">
+        <input type="text" placeholder="ค้นหา..." class="search-input">
+        <button class="search-btn">
+          <img src="{{ url_for('static', filename='image/search.svg') }}" alt="ค้นหา" class="search-icon">
+        </button>
+      </div>
+
+      <a href="/orders">
+        <img src="{{ url_for('static', filename='image/order.svg') }}" alt="Order">
+      </a>
+      <a href="/notifications">
+        <img src="{{ url_for('static', filename='image/notification.svg') }}" alt="Notification">
+      </a>
+
+      <span class="user-name">
+        <a href="/account">{{ session['fullname'] }}</a>
+      </span>
+
+      <a href="/logout">
+        <img src="{{ url_for('static', filename='image/logout.svg') }}" alt="Logout">
+      </a>
+    </div>
+  </nav>
+
+  <section class="seat-section">
+    <div class="seat-content">
+      <h1>
+        <span class="white">เลือกที่นั่งสำหรับ</span>
+        <span class="purple">{{ concert.concert_name }}</span>
+      </h1>
+      <p class="artist">ศิลปิน: {{ concert.artist }}</p>
+      <p class="venue">สถานที่: {{ concert.venue_name }}</p>
+
+      <form action="/checkout" method="POST" class="seat-form">
+        <input type="hidden" name="concert_id" value="{{ concert.concert_id }}">
+
+        <table>
+          <thead>
+            <tr>
+              <th>โซน</th>
+              <th>หมายเลขที่นั่ง</th>
+              <th>ราคา (บาท)</th>
+              <th>สถานะ</th>
+              <th>เลือก</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for seat in seats %}
+            <tr>
+              <td>{{ seat.zone }}</td>
+              <td>{{ seat.seat_number }}</td>
+              <td>{{ "%.2f"|format(seat.price) }}</td>
+              <td>
+                {% if seat.status == 'Booked' %}
+                  <span class="status booked">ถูกจองแล้ว</span>
+                {% else %}
+                  <span class="status available">ว่าง</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if seat.status != 'Booked' %}
+                  <input type="radio" name="seat_id" value="{{ seat.seat_id }}" required>
+                {% else %}
+                  <input type="radio" disabled>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <button type="submit" class="btn-main">ดำเนินการชำระเงิน</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>

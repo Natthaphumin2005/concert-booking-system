@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders | Concert Booking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/venue.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>
+        <span class="title-white">Concert</span>
+        <span class="title-purple">Booking</span>
+        <span class="title-green">System</span>
+      </h2>
+      <a href="/home">Home</a>
+      <a href="/concerts">Concert</a>
+      <a href="/concert_management" class="active">Concert Management</a>
+      <a href="/venue">Manage venue & seat</a>
+      <a href="/seat_pricing">Seat Price Management</a>
+      <a href="/about">About</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-container">
+        <input type="text" placeholder="ค้นหา..." class="search-input">
+        <button class="search-btn">
+          <img src="{{ url_for('static', filename='image/search.svg') }}" alt="ค้นหา" class="search-icon">
+        </button>
+      </div>
+
+      <a href="/orders">
+        <img src="{{ url_for('static', filename='image/order.svg') }}" alt="Order">
+      </a>
+      <a href="/notifications">
+        <img src="{{ url_for('static', filename='image/notification.svg') }}" alt="Notification">
+      </a>
+
+      <span class="user-name">
+        <a href="/account">{{ session['fullname'] }}</a>
+      </span>
+
+      <a href="/logout">
+        <img src="{{ url_for('static', filename='image/logout.svg') }}" alt="Logout">
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>รายการจองของฉัน</h2>
+
+    {% if orders %}
+      <table class="venue-table">
+        <thead>
+          <tr>
+            <th>คอนเสิร์ต</th>
+            <th>ศิลปิน</th>
+            <th>สถานที่</th>
+            <th>โซน</th>
+            <th>ที่นั่ง</th>
+            <th>วันที่จอง</th>
+            <th>ยอดชำระ (บาท)</th>
+            <th>ช่องทางชำระ</th>
+            <th>สถานะ</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for o in orders %}
+          <tr>
+            <td>{{ o.concert_name }}</td>
+            <td>{{ o.artist }}</td>
+            <td>{{ o.venue_name }}</td>
+            <td>{{ o.zone }}</td>
+            <td>{{ o.seat_number }}</td>
+            <td>{{ o.booking_date.strftime('%d/%m/%Y %H:%M') }}</td>
+            <td>{{ "%.2f"|format(o.total_price) }}</td>
+            <td>{{ o.payment_method }}</td>
+            <td>
+              {% if o.payment_status == 'Success' %}
+                <span class="status success">สำเร็จ</span>
+              {% elif o.payment_status == 'Refunded' %}
+                <span class="status cancel">ยกเลิกแล้ว</span>
+              {% else %}
+                <span class="status pending">รอดำเนินการ</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if o.payment_status == 'Success' %}
+                <a href="/cancel_booking/{{ o.booking_id }}" 
+                   class="btn-delete"
+                   onclick="return confirm('คุณต้องการยกเลิกการจองนี้หรือไม่?');">
+                   ยกเลิก
+                </a>
+              {% else %}
+                <span class="disabled">-</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="no-order">ยังไม่มีรายการจอง</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>

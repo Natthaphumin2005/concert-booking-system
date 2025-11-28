@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background-color: #0b0b28;
+  color: white;
+}
+
+/* กล่องใหญ่กลางหน้า */
+.account-section {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.account-box {
+  width: 80%;
+  background: #141433;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* โปรไฟล์ */
+.profile {
+  background: #1f1f3f;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profile-info p {
+  margin: 5px 0 0;
+  color: #bbb;
+}
+
+/* ประวัติการจอง */
+.history {
+  background: #1f1f3f;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.history h3 {
+  margin: 0 0 15px;
+  font-weight: 600;
+}
+
+.history p {
+  color: #ddd;
+  font-size: 15px;
+}
+
+.date {
+  float: right;
+  color: #bbb;
+  font-size: 13px;
+}

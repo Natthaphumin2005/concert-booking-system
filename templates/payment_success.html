@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ชำระเงินสำเร็จ | Concert Booking System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/payment_success.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>
+        <span class="title-white">Concert</span>
+        <span class="title-purple">Booking</span>
+        <span class="title-green">System</span>
+      </h2>
+      <a href="/home">Home</a>
+      <a href="/concerts">Concert</a>
+      <a href="/concert_management" class="active">Concert Management</a>
+      <a href="/venue">Manage venue & seat</a>
+      <a href="/seat_pricing">Seat Price Management</a>
+      <a href="/about">About</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-container">
+        <input type="text" placeholder="ค้นหา..." class="search-input">
+        <button class="search-btn">
+          <img src="{{ url_for('static', filename='image/search.svg') }}" alt="ค้นหา" class="search-icon">
+        </button>
+      </div>
+
+      <a href="/orders">
+        <img src="{{ url_for('static', filename='image/order.svg') }}" alt="Order">
+      </a>
+      <a href="/notifications">
+        <img src="{{ url_for('static', filename='image/notification.svg') }}" alt="Notification">
+      </a>
+
+      <span class="user-name">
+        <a href="/account">{{ session['fullname'] }}</a>
+      </span>
+
+      <a href="/logout">
+        <img src="{{ url_for('static', filename='image/logout.svg') }}" alt="Logout">
+      </a>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="success-container">
+      <div class="checkmark-wrapper">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+        </svg>
+      </div>
+
+      <h2>ชำระเงินสำเร็จ!</h2>
+      <p>ขอบคุณที่ใช้บริการ <strong>Concert Booking System</strong></p>
+      <p>ยอดชำระทั้งหมด: <strong>{{ "%.2f"|format(price) }} บาท</strong></p>
+
+      <a href="/orders" class="btn-main">ดูรายการจองของฉัน</a>
+    </div>
+  </div>
+</body>
+</html>

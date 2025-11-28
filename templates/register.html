@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Concert Booking System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+
+  <div class="login-container">
+    <h2>
+      <span class="title-white">Create</span>
+      <span class="title-purple">New</span>
+      <span class="title-green">Account</span>
+    </h2>
+    <p class="login-title">ลงทะเบียนเพื่อใช้งานระบบจองบัตรคอนเสิร์ต</p>
+
+    <form method="POST">
+      <input type="text" name="fullname" placeholder="ชื่อ-นามสกุล" required>
+      <input type="email" name="email" placeholder="อีเมล" required>
+      <input type="text" name="username" placeholder="ชื่อผู้ใช้ (Username)" required>
+      <input type="password" name="password" placeholder="รหัสผ่าน" required>
+
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+
+      <button type="submit" class="btn-login">ลงทะเบียน</button>
+      <a href="/" class="register-link">กลับไปหน้าเข้าสู่ระบบ</a>
+    </form>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background-color: #0b0b28;
+  color: white;
+}
+
+.main-content {
+  margin: 50px auto;
+  width: 85%;
+}
+
+.top-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.main-content h2 {
+  margin-bottom: 25px;
+}
+
+/* ===== Add Form ===== */
+.venue-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.venue-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #1f1f3f;
+  color: white;
+}
+
+.btn-add {
+  background-color: #4b32d8;
+  border: none;
+  outline: none;          /* ✅ ตัดเส้นขาวออก */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-add:focus {
+  outline: none;          /* ✅ ตัดเส้นตอน focus ด้วย */
+}
+
+
+.btn-add:hover {
+  background-color: #5d45ea;
+}
+
+/* ===== Table ===== */
+.venue-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1f1f3f;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.venue-table th, .venue-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.venue-table th {
+  background: #2c2c5c;
+}
+
+.venue-table tr:nth-child(even) {
+  background: #232357;
+}
+
+.btn-edit, .btn-delete {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+}
+
+.btn-edit {
+  background-color: #4b32d8;
+}
+
+.btn-edit:hover {
+  background-color: #5d45ea;
+}
+
+.btn-delete {
+  background-color: #d83a3a;
+}
+
+.btn-delete:hover {
+  background-color: #ff5656;
+}
+
+/* ===== Buttons ===== */
+.btn-save {
+  background: #4b32d8;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #33335b;
+  color: #ccc;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.btn-cancel:hover {
+  background: #4b4b7e;
+}
+
+/* สำหรับหน้า edit_venue.html */
+.form-container {
+  width: 420px;
+  margin: 120px auto;
+  background-color: #1e1b3a;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* หัวข้อฟอร์ม */
+.form-container h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* label และ input */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 92%; /* 🔹 ลดความกว้างให้อยู่ในขอบเดียวกับปุ่ม */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2f2b58;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-left: 0%;  /* 🔹 จัดให้อยู่ตรงกลาง */
+}
+
+.form-group input:focus {
+  outline: 2px solid #6d5dfc;
+}
+
+/* ปุ่ม */
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn-save {
+  flex: 1;
+  margin-right: 10px;
+  background-color: #5a3bfa;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #6d5dfc;
+}
+
+.btn-cancel {
+  flex: 1;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #444060;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #5c5778;
+}
+
+img {
+  max-width: 200px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+

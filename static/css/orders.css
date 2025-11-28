@@ -1,0 +1,109 @@
+/* ====== GLOBAL ====== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0a0a1f;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 26px;
+  color: #fff;
+  margin-bottom: 25px;
+  text-align: left;
+  border-left: 5px solid #00ff99;
+  padding-left: 10px;
+}
+
+/* ====== ORDER CONTAINER ====== */
+.order-container {
+  padding: 50px 80px;
+  margin-top: 80px;
+}
+
+.no-order {
+  text-align: center;
+  font-size: 18px;
+  color: #ccc;
+  margin-top: 40px;
+}
+
+/* ====== TABLE ====== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(180deg, #151533 0%, #101027 100%);
+}
+
+th, td {
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+th {
+  background-color: #242457;
+  color: #00ffb0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  color: #f1f1f1;
+  border-bottom: 1px solid #2e2e63;
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.2s;
+}
+
+/* ====== STATUS TAGS ====== */
+.status {
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.status.success {
+  background-color: #00c853;
+  color: #fff;
+}
+
+.status.pending {
+  background-color: #ffb300;
+  color: #fff;
+}
+
+.status.cancel {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+/* ====== BUTTON ====== */
+.btn-cancel {
+  background-color: #ff4b4b;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #ff6f6f;
+  transform: scale(1.05);
+}
+
+.disabled {
+  color: #777;
+}
+

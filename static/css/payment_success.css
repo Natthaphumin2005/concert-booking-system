@@ -1,0 +1,122 @@
+/* 🌙 Payment Success Page — Centered Perfectly */
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background-color: #0a0a24;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ✅ เนื้อหาหลัง Navbar — จัดกลางแนวดิ่งและแนวนอน */
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;  /* ความสูง navbar */
+  padding-bottom: 40px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 🎯 กล่องข้อความ */
+.success-container {
+  background-color: #121233;
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ===== หัวข้อ ===== */
+.success-container h2 {
+  font-size: 1.9rem;
+  color: #7b68ee;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* ===== ข้อความ ===== */
+.success-container p {
+  color: #cfcfcf;
+  font-size: 1rem;
+  margin: 5px 0 10px;
+}
+
+.success-container strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== ปุ่ม ===== */
+.btn-main {
+  display: inline-block;
+  background: linear-gradient(90deg, #6c5ce7, #8e79ff);
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-main:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #7b6cff, #9a86ff);
+}
+
+/* ===== Checkmark Animation ===== */
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  stroke-width: 3;
+  stroke: #31ff88;
+  stroke-miterlimit: 10;
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke: #31ff88;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

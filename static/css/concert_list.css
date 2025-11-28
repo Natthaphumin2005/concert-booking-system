@@ -1,0 +1,114 @@
+body {
+  background-color: #0b0b28;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* คอนเทนเนอร์รวม */
+.concert-container {
+  margin: 50px auto;
+  width: 85%;
+}
+
+/* หัวข้อ */
+.concert-container h2 {
+  margin-bottom: 25px;
+}
+
+/* กริดคอนเสิร์ต */
+.concert-grid {
+  display: flex;                
+  flex-wrap: wrap;              
+  gap: 25px;
+  justify-content: flex-start;  
+}
+
+/* การ์ดแต่ละใบ */
+.concert-card {
+  background-color: #1e1b3a;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 280px;
+  height: 380px; /* ✅ ล็อกความสูงเท่ากัน */
+  display: flex;
+  flex-direction: column; /* ✅ แบ่งส่วนบน-ล่าง */
+  justify-content: space-between; /* ✅ ปุ่มอยู่ล่างสุด */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.concert-card:hover {
+  transform: translateY(-5px);
+}
+
+/* รูปภาพ */
+.concert-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* ✅ ให้รูปไม่บิดแต่ขนาดเท่ากันทุกใบ */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* ข้อความภในการ์ด */
+.concert-info {
+  padding: 12px 14px;
+  text-align: left;
+  flex-grow: 1; /* ✅ ให้ขยายพอดี */
+}
+
+.concert-info h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.concert-info p {
+  margin: 3px 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.concert-info .venue {
+  color: #8f8df9;
+}
+
+.concert-info .date {
+  font-size: 0.85rem;
+  color: #a0a0ff;
+}
+
+/* ปุ่มซื้อตั๋ว / SOLD OUT */
+.btn-buy,
+.btn-soldout {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 0 0 16px 16px; /* ✅ โค้งพอดี */
+  margin-top: auto;
+}
+
+.btn-buy {
+  background-color: #5a3bfa;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-buy:hover {
+  background-color: #6d5dfc;
+}
+
+.btn-soldout {
+  background-color: #333;
+  color: #999;
+}
